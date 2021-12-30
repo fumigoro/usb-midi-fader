@@ -13,8 +13,6 @@
 
 ### 主要なもの
 
-
-
 |名称|型番|数量|仕様|
 |--|--|--|--|
 |Pro Micro||1|Arduino Micro 互換ボード|
@@ -33,6 +31,7 @@
  
  ATmega32u4 搭載の Arduino (LeonardやMicro) やその互換ボードあればおそらくなんでも大丈夫なので、別に全く同じところで同じものを買う必要はありません。
  
+
  https://ja.aliexpress.com/item/32887074671.html
 
  純正Arduino Microは秋月電子でも販売されています。
@@ -76,4 +75,41 @@
 
 
  
- 
+ ## プログラム
+
+このリポジトリを[ダウンロード](https://github.com/fumigoro/usb-midi-fader/archive/refs/heads/master.zip)して解凍後、Arduino IDEで開いてください。
+
+プログラム内には下記のように設定項目がありますので、必要に応じて編集してください。
+
+あとはPro Microに書き込めば完了です。
+
+```
+
+// *******各種設定*******
+
+// 物理フェーダーとMIDIのチャンネル番号の対応を設定
+// この配列の要素数とNUM_OF_FADERは一致させる必要があります。
+unsigned char fader_map[] = {15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+// SPIのSignalSelectピンを接続したIOの番号
+// デジタル出力(HIGH or LOW)ができるIOならどこでもいいです。
+// ADC1台目
+#define SPI_SEL_1_8 10
+// ADC2台目
+#define SPI_SEL_9_16 7
+
+// SPIのMOSI,MISO,CLOCKのピンは用いるマイコンごとに1つに決められています。使用するマイコンのデータシートを要確認。
+// SPIのMOSI(MasterOut SlaveIn)ピンを接続したIOの番号
+#define SPI_MOSI 16
+// SPIのMISO(MasterOut SlaveIn)ピンを接続したIOの番号
+#define SPI_MISO 14
+// SPIのClockピンを接続したIOの番号
+#define SPI_CLOCK 15
+
+// USBから出力するMIDIのチャンネル番号
+// 0~15で指定する。
+#define MIDI_CH 1
+
+// *******ここまで*******
+
+```
