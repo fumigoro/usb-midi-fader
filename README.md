@@ -1,4 +1,4 @@
-# 物理MIDIフェーダー
+# Pro Microで作る自作MIDIフェーダー
 
 ![image](https://user-images.githubusercontent.com/51395778/147743945-fbfe72d6-1a85-4328-8d8c-9cd47f2d0f0b.png)
 
