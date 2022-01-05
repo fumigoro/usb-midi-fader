@@ -16,8 +16,6 @@ void send_midi();
 unsigned char convert_10to7(unsigned short adc_value);
 void print_adc_value();
 void control_change(unsigned char channel, unsigned char control, unsigned char value);
-void note_on(unsigned char channel, unsigned char pitch, unsigned char velocity);
-void note_off(unsigned char channel, unsigned char pitch, unsigned char velocity);
 
 // ADCから読み取った値を保存する配列
 unsigned short adc_value[NUM_OF_FADER];
